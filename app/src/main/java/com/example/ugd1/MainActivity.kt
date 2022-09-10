@@ -64,7 +64,10 @@ class MainActivity : AppCompatActivity() {
 
 
         btnClear.setOnClickListener{
-            if(inputUsername.isEmpty() && inputPassword.isEmpty()){
+            val username: String = inputUsername.getEditText()?.getText().toString()
+            val password: String = inputPassword.getEditText()?.getText().toString()
+
+            if(username.isEmpty() && password.isEmpty()){
                 Snackbar.make(mainLayout, "Field Masih Kosong", Snackbar.LENGTH_LONG).show()
                 return@setOnClickListener
             }
