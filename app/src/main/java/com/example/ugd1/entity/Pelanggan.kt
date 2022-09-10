@@ -12,7 +12,12 @@ class Pelanggan(
             Pelanggan("Erik Somba",20,"081292742817","Laki-laki"),
             Pelanggan("Aldyo Karnavion",18,"081292816352","Laki-laki"),
             Pelanggan("Ella Margaretta",19,"087791726255","Perempuan"),
-            Pelanggan("Rafa Markomar",21,"081262518499","Laki-laki"),
+            Pelanggan("Vania Aurelia",18,"0877273618239","Perempuan"),
+            Pelanggan("Dustin Omar",22,"082212332144","Laki-laki"),
+            Pelanggan("Alvin Yoman",17,"081201839481","Laki-laki"),
+            Pelanggan("Rafa Markomar",20,"081262518499","Laki-laki"),
+            Pelanggan("Chelsea Agatha",21,"081223471923","Perempuan"),
+            Pelanggan("Dimas Yeremia",21,"087781729183","Laki-laki"),
         )
     }
 }
