@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         val btnRegister: Button = findViewById(R.id.btnRegister)
         val btnLogin: Button = findViewById(R.id.btnLogin)
 
+        btnRegister.setOnClickListener{
+            val moveRegister = Intent(this@MainActivity, RegisterActivity::class.java)
+            startActivity(moveRegister)
+        }
+
         btnLogin.setOnClickListener(View.OnClickListener {
             var checkLogin = false
             val username: String = inputUsername.getEditText()?.getText().toString()
@@ -50,8 +55,10 @@ class MainActivity : AppCompatActivity() {
             }
             if(!checkLogin) return@OnClickListener
 
-//            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
-//            startActivity(moveHome)
+            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
+            startActivity(moveHome)
         })
+
+
     }
 }
