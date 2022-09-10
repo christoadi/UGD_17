@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isEmpty
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 
@@ -26,8 +27,9 @@ class MainActivity : AppCompatActivity() {
         mainLayout = findViewById(R.id.mainLayout)
         val btnRegister: Button = findViewById(R.id.btnRegister)
         val btnLogin: Button = findViewById(R.id.btnLogin)
+        val btnClear: Button = findViewById(R.id.btnClear)
 
-        btnRegister.setOnClickListener{
+        btnRegister.setOnClickListener {
             val moveRegister = Intent(this@MainActivity, RegisterActivity::class.java)
             startActivity(moveRegister)
         }
@@ -59,6 +61,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(moveHome)
         })
 
+
+
+        btnClear.setOnClickListener{
+            if(inputUsername.isEmpty() && inputPassword.isEmpty()){
+                Snackbar.make(mainLayout, "Field Masih Kosong", Snackbar.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            inputUsername.editText?.setText("")
+            inputPassword.editText?.setText("")
+
+            Snackbar.make(mainLayout, "Success Clear Field", Snackbar.LENGTH_LONG).show()
+        }
 
     }
 }

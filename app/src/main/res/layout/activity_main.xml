@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:hint="password"
+            android:hint="Password"
             app:errorEnabled="true"
             app:startIconTint="@android:color/holo_blue_dark"
             app:startIconDrawable="@drawable/ic_lock_24"
