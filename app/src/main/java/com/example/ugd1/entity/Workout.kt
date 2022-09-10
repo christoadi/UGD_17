@@ -12,7 +12,6 @@ class Workout(
             Workout("Push Up"),
             Workout("Heel Touch"),
             Workout("Plank"),
-
         )
     }
 }

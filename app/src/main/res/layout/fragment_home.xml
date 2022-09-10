@@ -22,6 +22,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1" />
 
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:srcCompat="@drawable/gym"
+        app:layout_constraintEnd_toStartOf="@id/tvHi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_workout"
         android:layout_width="wrap_content"
@@ -31,7 +42,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/rv_workout" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

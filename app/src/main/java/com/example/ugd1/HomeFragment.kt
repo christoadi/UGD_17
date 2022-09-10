@@ -26,15 +26,15 @@ class HomeFragment: Fragment() {
         val adapter: RVWorkout = RVWorkout(Workout.userWorkout)
 
         //Menghubungkan rvMahasiswa dengan recycler view yang ada pada layout
-        val rvWorkout : RecyclerView = view.findViewById(R.id.rv_workout)
+        val rvData : RecyclerView = view.findViewById(R.id.rv_workout)
 
         //Set layout manager dari recycler view
-        rvWorkout.layoutManager = layoutManager
+        rvData.layoutManager = layoutManager
 
         //tidak mengubah size recycler view jika terdapat item ditambahkan atau dikurangkan
-        rvWorkout.setHasFixedSize(true)
+        rvData.setHasFixedSize(true)
 
         //Set Adapter dari recycler view.
-        rvWorkout.adapter = adapter
+        rvData.adapter = adapter
     }
 }

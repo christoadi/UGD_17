@@ -34,5 +34,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    app:defaultNavHost="true"-->
 </androidx.constraintlayout.widget.ConstraintLayout>
