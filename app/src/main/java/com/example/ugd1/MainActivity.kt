@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
     var bundle: Bundle? = null
-    var tempUsername: String = "user"
-    var tempPass: String = "pass"
+    var tempUsername: String = ""
+    var tempPass: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,13 +33,6 @@ class MainActivity : AppCompatActivity() {
         val btnLogin: Button = findViewById(R.id.btnLogin)
         val btnClear: Button = findViewById(R.id.btnClear)
 
-        if(intent.getBundleExtra("register")!=null){
-            bundle = intent.getBundleExtra("register")
-            tempUsername = bundle!!.getString("username")!!
-            tempPass = bundle!!.getString("password")!!
-            inputUsername.editText?.setText(tempUsername)
-            inputPassword.editText?.setText(tempPass)
-        }
 
         btnRegister.setOnClickListener {
             val moveRegister = Intent(this@MainActivity, RegisterActivity::class.java)
@@ -68,6 +61,14 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(mainLayout, "Username atau Password salah!", Snackbar.LENGTH_LONG).show()
             }
             if(!checkLogin) return@OnClickListener
+
+            if(intent.getBundleExtra("register")!=null){
+                bundle = intent.getBundleExtra("register")
+                tempUsername = bundle!!.getString("username")!!
+                tempPass = bundle!!.getString("password")!!
+                inputUsername.editText?.setText(tempUsername)
+                inputPassword.editText?.setText(tempPass)
+            }
 
             val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
 

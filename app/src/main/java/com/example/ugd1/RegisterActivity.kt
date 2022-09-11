@@ -1,5 +1,6 @@
 package com.example.ugd1
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -9,6 +10,9 @@ import android.content.Intent
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.util.*
+import com.example.ugd1.MainActivity
 
 class RegisterActivity: AppCompatActivity() {
     private lateinit var tilUsername: TextInputLayout
@@ -17,11 +21,15 @@ class RegisterActivity: AppCompatActivity() {
     private lateinit var tilTanggalLahir: TextInputLayout
     private lateinit var tilNomorTelepon: TextInputLayout
     private lateinit var btnRegister: Button
+    private lateinit var regisLayout: ConstraintLayout
     private lateinit var btnClear: Button
+    private lateinit var btnDatePicker: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        setTitle("Register Menu")
 
         tilUsername = findViewById(R.id.etUsername)
         tilPassword = findViewById(R.id.etPassword)
@@ -31,12 +39,27 @@ class RegisterActivity: AppCompatActivity() {
         val btnRegister: Button = findViewById(R.id.btnRegister)
         val btnClear: Button = findViewById(R.id.btnClear)
 
+        btnDatePicker = findViewById(R.id.btnDatePicker)
+        val myCalendar = Calendar.getInstance()
+        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateLable(myCalendar)
+        }
+
+        btnDatePicker.setOnClickListener{
+            DatePickerDialog(this, datePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
         btnClear.setOnClickListener{
             tilUsername.editText?.setText("")
             tilPassword.editText?.setText("")
             tilEmail.editText?.setText("")
             tilTanggalLahir.editText?.setText("")
             tilNomorTelepon.editText?.setText("")
+
 
         }
 
@@ -54,8 +77,8 @@ class RegisterActivity: AppCompatActivity() {
             bundle.putString("username", tilUsername.editText?.text.toString())
             bundle.putString("password", tilPassword.editText?.text.toString())
             bundle.putString("email", tilEmail.editText?.text.toString())
-            bundle.putString("TanggalLahir", tilTanggalLahir.editText?.text.toString())
-            bundle.putString("NomorTelepon", tilNomorTelepon.editText?.text.toString())
+            bundle.putString("tanggalLahir", tilTanggalLahir.editText?.text.toString())
+            bundle.putString("nomorTelepon", tilNomorTelepon.editText?.text.toString())
 
             if(username.isEmpty()){
                 tilUsername.setError("Username masih Kosong")
@@ -80,7 +103,9 @@ class RegisterActivity: AppCompatActivity() {
             if(nomorTelepon.isEmpty()){
                 tilNomorTelepon.setError("Nomor Telepon masih Kosong")
                 checkLogin = false
-        }
+             }
+
+
 
             if(!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !tanggalLahir.isEmpty() && !nomorTelepon.isEmpty()){
                 val moveLogin = Intent(this@RegisterActivity, MainActivity::class.java)
@@ -89,9 +114,14 @@ class RegisterActivity: AppCompatActivity() {
             }
             if(!checkLogin) return@OnClickListener
 
-//
 
         })
+    }
+
+    private fun updateLable(myCalendar: Calendar) {
+        val myFormat = "dd-MM-yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.UK)
+        tilTanggalLahir.editText?.setText(sdf.format(myCalendar.time))
     }
 
 }
