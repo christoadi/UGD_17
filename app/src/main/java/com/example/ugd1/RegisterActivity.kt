@@ -12,7 +12,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.text.SimpleDateFormat
 import java.util.*
-import com.example.ugd1.MainActivity
 
 class RegisterActivity: AppCompatActivity() {
     private lateinit var tilUsername: TextInputLayout
@@ -112,8 +111,8 @@ class RegisterActivity: AppCompatActivity() {
                 intent.putExtra("register", bundle)
                 startActivity(moveLogin)
             }
-            if(!checkLogin) return@OnClickListener
 
+            if(!checkLogin) return@OnClickListener
 
         })
     }

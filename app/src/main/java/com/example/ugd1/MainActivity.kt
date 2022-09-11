@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         val btnClear: Button = findViewById(R.id.btnClear)
 
 
+
         btnRegister.setOnClickListener {
             val moveRegister = Intent(this@MainActivity, RegisterActivity::class.java)
             startActivity(moveRegister)
