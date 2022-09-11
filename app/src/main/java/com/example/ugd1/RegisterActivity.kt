@@ -1,5 +1,6 @@
 package com.example.ugd1
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,6 +9,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import android.content.Intent
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.util.*
 
 class RegisterActivity: AppCompatActivity() {
     private lateinit var tilUsername: TextInputLayout
@@ -18,6 +21,8 @@ class RegisterActivity: AppCompatActivity() {
     private lateinit var btnRegister: Button
     private lateinit var btnClear: Button
     private lateinit var registerLayout: ConstraintLayout
+    private lateinit var btnDatePicker: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +97,20 @@ class RegisterActivity: AppCompatActivity() {
             if(!checkLogin) return@OnClickListener
         })
 
+        btnDatePicker = findViewById(R.id.btnDatePicker)
+        val myCalendar = Calendar.getInstance()
+        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateLable(myCalendar)
+        }
+
+        btnDatePicker.setOnClickListener{
+            DatePickerDialog(this, datePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
         btnClear.setOnClickListener{
             tilUsername.editText?.setText("")
             tilPassword.editText?.setText("")
@@ -102,6 +121,12 @@ class RegisterActivity: AppCompatActivity() {
         }
 
 
+    }
+
+    private fun updateLable(myCalendar: Calendar) {
+        val myFormat = "dd-MM-yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.UK)
+        tilTanggalLahir.editText?.setText(sdf.format(myCalendar.time))
     }
 
 }
