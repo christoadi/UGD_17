@@ -7,18 +7,18 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 class ProfileActivity: AppCompatActivity() {
-//    private lateinit var btnLogOut: Button
+
+//    val btnLogOut: Button = findViewById(R.id.btnLogOut)
 //
+//
+//    btnLogOut.setOnClickListener(View.OnClickListener {
+//        val moveLogin = Intent(this@ProfileActivity, MainActivity::class.java)
+//        startActivity(moveLogin)
+//    })
 //    override fun OnCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_profile)
 //
 //
-//        btnLogOut.setOnClickListener(View.OnClickListener {
-//            val moveLogin = Intent(this@ProfileActivity, MainActivity::class.java)
-//            startActivity(moveLogin)
-//
-//
-//        })
 //    }
 }
