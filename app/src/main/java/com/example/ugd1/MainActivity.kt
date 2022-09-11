@@ -37,16 +37,9 @@ class MainActivity : AppCompatActivity() {
             bundle = intent.getBundleExtra("register")
             tempUsername = bundle!!.getString("username")!!
             tempPass = bundle!!.getString("password")!!
-            println(tempUsername)
             inputUsername.editText?.setText(tempUsername)
             inputPassword.editText?.setText(tempPass)
         }
-//
-//        val userName = intent.getStringExtra("username")
-//        val passWord = intent.getStringExtra("password")
-//
-//        inputUsername.editText?.setText()
-//        inputPassword.editText?.setText()
 
         btnRegister.setOnClickListener {
             val moveRegister = Intent(this@MainActivity, RegisterActivity::class.java)

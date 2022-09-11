@@ -84,6 +84,7 @@ class RegisterActivity: AppCompatActivity() {
 
             if(!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !tanggalLahir.isEmpty() && !nomorTelepon.isEmpty()){
                 val moveLogin = Intent(this@RegisterActivity, MainActivity::class.java)
+                intent.putExtra("register", bundle)
                 startActivity(moveLogin)
             }
             if(!checkLogin) return@OnClickListener
