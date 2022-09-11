@@ -15,9 +15,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
-    var mBundle: Bundle? = null
-    var tempUsername: String = "a"
-    var tempPass: String = "a"
+    var bundle: Bundle? = null
+    var tempUsername: String = "user"
+    var tempPass: String = "pass"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +34,20 @@ class MainActivity : AppCompatActivity() {
         val btnClear: Button = findViewById(R.id.btnClear)
 
         if(intent.getBundleExtra("register")!=null){
-            mBundle = intent.getBundleExtra("register")
-            tempUsername = mBundle!!.getString("username")!!
-            tempPass = mBundle!!.getString("password")!!
+            bundle = intent.getBundleExtra("register")
+            tempUsername = bundle!!.getString("username")!!
+            tempPass = bundle!!.getString("password")!!
             println(tempUsername)
             inputUsername.editText?.setText(tempUsername)
             inputPassword.editText?.setText(tempPass)
         }
+//
+//        val userName = intent.getStringExtra("username")
+//        val passWord = intent.getStringExtra("password")
+//
+//        inputUsername.editText?.setText()
+//        inputPassword.editText?.setText()
+
         btnRegister.setOnClickListener {
             val moveRegister = Intent(this@MainActivity, RegisterActivity::class.java)
             startActivity(moveRegister)

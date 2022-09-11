@@ -102,7 +102,6 @@
                 android:hint="example@gmail.com" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etTanggalLahir"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -121,8 +120,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tanggal Lahir" />
-        </com.google.android.material.textfield.TextInputLayout>
 
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etNomorTelepon"
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnRegister"
             android:layout_width="90dp"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:backgroundTint="@android:color/holo_blue_dark"
             android:layout_weight="1"
             android:text="REGISTER"/>
 

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.content.Intent
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class RegisterActivity: AppCompatActivity() {
@@ -40,8 +41,9 @@ class RegisterActivity: AppCompatActivity() {
         }
 
         btnRegister.setOnClickListener(View.OnClickListener {
-            val mBundle = Bundle()
+            val bundle = Bundle()
             var checkLogin = false
+
 
             val username: String = tilUsername.getEditText()?.getText().toString()
             val password: String = tilPassword.getEditText()?.getText().toString()
@@ -49,11 +51,11 @@ class RegisterActivity: AppCompatActivity() {
             val tanggalLahir: String = tilTanggalLahir.getEditText()?.getText().toString()
             val nomorTelepon: String = tilNomorTelepon.getEditText()?.getText().toString()
 
-            mBundle.putString("username", tilUsername.editText?.text.toString())
-            mBundle.putString("password", tilPassword.editText?.text.toString())
-            mBundle.putString("email", tilEmail.editText?.text.toString())
-            mBundle.putString("TanggalLahir", tilTanggalLahir.editText?.text.toString())
-            mBundle.putString("NomorTelepon", tilNomorTelepon.editText?.text.toString())
+            bundle.putString("username", tilUsername.editText?.text.toString())
+            bundle.putString("password", tilPassword.editText?.text.toString())
+            bundle.putString("email", tilEmail.editText?.text.toString())
+            bundle.putString("TanggalLahir", tilTanggalLahir.editText?.text.toString())
+            bundle.putString("NomorTelepon", tilNomorTelepon.editText?.text.toString())
 
             if(username.isEmpty()){
                 tilUsername.setError("Username masih Kosong")
@@ -80,56 +82,13 @@ class RegisterActivity: AppCompatActivity() {
                 checkLogin = false
         }
 
-            if(!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !tanggalLahir.
-                isEmpty() && !nomorTelepon.isEmpty()){
+            if(!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !tanggalLahir.isEmpty() && !nomorTelepon.isEmpty()){
                 val moveLogin = Intent(this@RegisterActivity, MainActivity::class.java)
-                intent.putExtra("register", mBundle)
                 startActivity(moveLogin)
             }
             if(!checkLogin) return@OnClickListener
 
-//            var checkLogin = false
-//            val username: String = tilUsername.getEditText()?.getText().toString()
-//            val password: String = tilPassword.getEditText()?.getText().toString()
-//            val email: String = tilEmail.getEditText()?.getText().toString()
-//            val tanggalLahir: String = tilTanggalLahir.getEditText()?.getText().toString()
-//            val noTelp: String = tilNomorTelepon.getEditText()?.getText().toString()
 //
-//
-//            if (username.isEmpty()) {
-//                tilUsername.setError("Username must be filled with text")
-//                checkLogin = false
-//            }
-//
-//            if (password.isEmpty()) {
-//                tilPassword.setError("Password must be filled with text")
-//                checkLogin = false
-//            }
-//
-//            if (email.isEmpty()) {
-//                tilEmail.setError("Password must be filled with text")
-//                checkLogin = false
-//            }
-//
-//            if (tanggalLahir.isEmpty()) {
-//                tilTanggalLahir.setError("Password must be filled with text")
-//                checkLogin = false
-//            }
-//
-//            if (noTelp.isEmpty()) {
-//                tilNomorTelepon.setError("Password must be filled with text")
-//                checkLogin = false
-//            }
-//
-//
-//            if(!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !tanggalLahir.isEmpty()&& !noTelp.isEmpty() ) {
-//                val moveRegister = Intent(this@RegisterActivity, MainActivity::class.java)
-//                startActivity(moveRegister)
-//                checkLogin=true
-//            }
-//
-//            if (!checkLogin) return@OnClickListener
-
 
         })
     }
