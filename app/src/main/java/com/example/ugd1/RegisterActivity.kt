@@ -52,6 +52,7 @@ class RegisterActivity: AppCompatActivity() {
                 checkLogin = false
             }
 
+
             if(password.isEmpty()){
                 tilPassword.setError("Password masih Kosong")
                 checkLogin = false
