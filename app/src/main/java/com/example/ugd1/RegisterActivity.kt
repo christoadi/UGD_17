@@ -119,8 +119,6 @@ class RegisterActivity: AppCompatActivity() {
             tilNomorTelepon.editText?.setText("")
 
         }
-
-
     }
 
     private fun updateLable(myCalendar: Calendar) {
